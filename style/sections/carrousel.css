@@ -1,0 +1,9 @@
+section.carrousel{
+    .carrousel_arrows{
+        svg{
+            path::first-child{
+                fill: var(--color_accent)
+            }
+        }
+    }
+}
