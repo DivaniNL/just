@@ -1,7 +1,7 @@
 header{
     .container_navigation{
         padding-top: 40px;
-        padding-bottom: 40px;
+        padding-bottom: 20px;
         padding-left: 0.8888rem;
         padding-right: 0.88888rem;
         background-color: var(--color_background);
@@ -11,7 +11,9 @@ header{
         position: fixed;
         z-index: 999;
         top: 0;
-        width: 100%;
+        right: 0;
+        width: fit-content;
+        border-bottom-left-radius: 30px;
         select{
             display: flex;
             gap: 12px;
@@ -26,7 +28,7 @@ header{
             font-family: var(--font_reg);
             border: none;
             padding: 7px 10px;
-            font-size: var(--fonts_xs);
+            font-size: var(--fonts_small);
             line-height: var(--line_xs);
             border-radius: 30px;
             letter-spacing: 4%;
@@ -51,17 +53,21 @@ header{
             }
         }
         @media (min-width: 820px){
-            padding-left: 3.75rem;
+            padding-left: 0.8888rem;
             padding-right: 3.75rem;
         }
     }
     
-    img.logo_just{
+    svg.logo_just{
         width: 96px;
+        height: 37px;
         position: absolute;
         top: 40px;
         left: 0.8888rem;
         z-index: 9999;
+        path{
+            fill: var(--color_foreground);
+        }
     }
 
 }

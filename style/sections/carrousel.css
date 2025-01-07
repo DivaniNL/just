@@ -1,8 +1,31 @@
 section.carrousel{
+    padding: 60px 0 0 0;
+
     .carrousel_arrows{
         svg{
-            path::first-child{
+            width: 66px;
+            position: absolute;
+            top: 50%;
+            translate: 0 -50%;
+            path:first-child{
                 fill: var(--color_accent)
+            }
+            
+            &.arrow_prev{
+                transform: scale(-1,1);
+                left: 0;
+            }
+            &.arrow_next{
+                right: 0;
+            }
+        }
+    }
+    .carrousel_slides{
+        position: relative;
+        figure{
+            img{
+                width: calc(100% + 1.7776rem);
+                margin-left: -0.8888rem;
             }
         }
     }

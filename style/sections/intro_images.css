@@ -2,7 +2,8 @@ figure.intro_images{
     text-align: center;
     padding-bottom: 106px;
     position: relative;
-    img{
+    overflow: hidden;
+    img,svg{
         &.logo_bandb{
             width: 100%;
             max-width: 556px;
@@ -23,6 +24,7 @@ figure.intro_images{
             left: 0;
             rotate: 19deg;
             width: 153px;
+            bottom :63px
         }
     }
 }
