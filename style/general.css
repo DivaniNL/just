@@ -17,4 +17,6 @@ main{
 .m-both{
     margin: 32px 0;
 }
-
+.mb{
+    margin-bottom: 25px;
+}
