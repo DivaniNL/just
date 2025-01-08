@@ -34,22 +34,25 @@ header{
             letter-spacing: 4%;
             background-size: 101% 200%;
             transition: 0.3s ease;
-            color: var(--color_foreground);
+            color: var(--black);
             background-position: top;
             cursor: pointer;
             width: fit-content;
-            background-image: linear-gradient(var(--color_background) 50%, var(--color_accent) 50%);
+            background-image: linear-gradient(var(--color_foreground) 50%, var(--color_accent) 50%);
             &:focus,
             &:hover {
                 background-position: bottom;
                 color: var(--black);
+                option{
+                    color: var(--black);
+                }
             }
             &.active{
                 background-position: bottom;
-                color: var(--black);  
+                color: var(--black);
             }
             option{
-                color: black;
+                color: var(--black);
             }
         }
         @media (min-width: 820px){
@@ -70,4 +73,13 @@ header{
         }
     }
 
+}
+
+body[data-theme="light"]{
+    select.theme-selector{
+        color: var(--white);
+        option{
+            color: var(--white);
+        }
+    }
 }
