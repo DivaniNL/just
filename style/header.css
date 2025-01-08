@@ -22,6 +22,7 @@ header{
             justify-content: end;
             margin-left: auto;
             width: 100%;
+            
         }
         select.theme-selector{
             text-transform: uppercase;

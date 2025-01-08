@@ -1,32 +1,59 @@
 section.carrousel{
-    padding: 60px 0 0 0;
+    margin: 60px 0 0 0;
     position: relative;
     .carrousel_arrows{
-        svg{
-            width: 66px;
-            position: absolute;
-            top: 50%;
-            translate: 0 -50%;
-            path:first-child{
-                fill: var(--color_accent)
-            }
-            
-            &.arrow_prev{
-                transform: scale(-1,1);
-                left: 0;
-            }
-            &.arrow_next{
-                right: 0;
+        list-style: none;
+        position: absolute;
+        height: fit-content;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        translate: 0 -50%;
+        li{
+            button{
+                appearance: none;
+                border: 0;
+                svg{
+                    width: 66px;
+                    position: absolute;
+                    top: 50%;
+                    translate: 0 -50%;
+                    path:first-child{
+                        fill: var(--color_accent)
+                    }
+                    
+                    &.arrow_prev{
+                        transform: scale(-1,1);
+                        left: 0;
+                    }
+                    &.arrow_next{
+                        right: 0;
+                    }
+                }
             }
         }
+        
     }
     .carrousel_slides{
-
-        figure{
-            img{
-                width: calc(100% + 1.7776rem);
-                margin-left: -0.8888rem;
-            }
+        list-style: none;
+        width: calc(100% + 1.7776rem);
+        margin-left: -0.8888rem;
+        display: flex;
+        overflow-x: scroll;
+        .carrousel_slide{
+            width: 100vw;
+            figure{
+                display: grid;
+                width: 100vw;
+                img{
+                    width: 100vw;
+                }
+                figcaption{
+                    padding: 0 0.8888rem;
+                    width: calc(100% - 0.8888rem);
+                }
+            }  
         }
+       
     }
 }
