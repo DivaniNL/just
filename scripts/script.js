@@ -2,14 +2,8 @@ const selectMode = document.querySelector(".theme-selector");
 const fetchMode = () => {
     const savedMode = localStorage.getItem("mode");
     selectMode.value = savedMode;
-    switch (savedMode) {
-        case "light":
-     
-            break;
-        case "dark":
-            break;
-        default:
-            break;
+    if (!savedMode) {
+        setTheme("light");
     }
 };
 
