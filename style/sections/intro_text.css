@@ -2,5 +2,10 @@ section.intro_text{
     margin-bottom: 36px;
     h1{
         margin-bottom: 0.88888rem;
+        .text_magic{
+            text-transform: none;
+            hyphens: auto;
+            word-break: break-word;
+        }
     }
 }
