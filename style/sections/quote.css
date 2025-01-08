@@ -1,4 +1,4 @@
-aside.quote{
+blockquote.quote{
     padding-top: 95px;
     padding-bottom: 60px;
     position: relative;
@@ -8,7 +8,7 @@ aside.quote{
         top: 24px;
         position: absolute;
     }
-    h3.h3{
+    .h3{
         font-family: var(--font_light);
         font-weight: 300 !important;
         margin-bottom: 24px;
