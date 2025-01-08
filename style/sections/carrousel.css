@@ -1,6 +1,6 @@
 section.carrousel{
     padding: 60px 0 0 0;
-
+    position: relative;
     .carrousel_arrows{
         svg{
             width: 66px;
@@ -21,7 +21,7 @@ section.carrousel{
         }
     }
     .carrousel_slides{
-        position: relative;
+
         figure{
             img{
                 width: calc(100% + 1.7776rem);
