@@ -29,8 +29,15 @@ section.carrousel{
                     &.arrow_next{
                         right: 0;
                     }
+                    @media (min-width: 600px){
+                        width: 130px;
+                    }
                 }
             }
+        }
+        @media (min-width: 600px){
+            width: calc(100% + 80px);
+            translate: -40px -50%;
         }
         
     }
@@ -45,18 +52,28 @@ section.carrousel{
         
         .carrousel_slide{
             width: 100vw;
+            max-width: 100%;
             scroll-snap-align: center;
             figure{
                 display: grid;
                 width: 100vw;
+                max-width: 100%;
                 img{
                     width: 100vw;
+                    max-width: 100%;
                 }
                 figcaption{
                     padding: 0 0.8888rem;
                     width: calc(100% - 0.8888rem);
+                    @media (min-width: 600px){
+                        width: 100%;
+                    }
                 }
             }  
+        }
+        @media (min-width: 600px){
+            width: 100%;
+            margin-left: unset;
         }
        
     }

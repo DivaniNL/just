@@ -3,7 +3,7 @@
     margin: 0 0 1.25rem 0;
     display: grid;
     grid-template-columns: minmax(0.8888rem, 1fr) minmax(0, 1320px) minmax(0.8888rem, 1fr);
-    @media (min-width: 820px){
+    @media (min-width: 600px){
         grid-template-columns: minmax(3.75rem, 1fr) minmax(0, 1320px) minmax(3.75rem, 1fr); 
     }
 }

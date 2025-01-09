@@ -1,12 +1,30 @@
 footer{
     position: relative;
     overflow-x: hidden;
+    @media (min-width: 825px){
+        .grid_giver{
+            .grid_receiver{
+                position: relative;
+            }
+        }
+    }
     .row_1{
         padding: 80px 0;
         form{
+            @media (min-width: 640px) and (max-width: 825px){
+                display: grid;
+                grid-template-columns: 1fr max-content;
+            }
             label{
                 width: 100%;
+                @media (min-width: 600px){
+                    width: 100%;
+                    max-width: 550px;
+                }
             }
+        }
+        h2 + p{
+            max-width: 420px;
         }
     }
     .row_2{
@@ -28,5 +46,12 @@ footer{
         bottom: 80px;
         rotate: 21deg;
         z-index: -1;
+
+        @media (min-width: 640px){
+            bottom: 192px;
+        }
+        @media (min-width: 825px){
+            width: 195px;
+        }
     }
 }

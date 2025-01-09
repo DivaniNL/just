@@ -3,7 +3,7 @@ section.intro_text{
     h1{
         margin-bottom: 0.88888rem;
         .text_magic{
-            text-transform: none;
+            text-transform: uppercase;
             hyphens: auto;
             word-break: break-word;
         }
