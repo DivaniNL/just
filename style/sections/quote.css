@@ -8,6 +8,15 @@ blockquote.quote{
         top: 24px;
         position: absolute;
     }
+    &:after{
+        content: '“';
+        font-family: var(--font_magic) !important;
+        color: var(--color_accent) !important;
+        position: absolute;
+        font-size: 94px;
+        height: 50px;
+        top: 24px;
+    }
     .h3{
         font-family: var(--font_light);
         font-weight: 300 !important;
