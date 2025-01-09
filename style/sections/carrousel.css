@@ -41,6 +41,8 @@ section.carrousel{
         display: flex;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
+        scrollbar-width: none;  /* Firefox */
+        
         .carrousel_slide{
             width: 100vw;
             scroll-snap-align: center;
@@ -57,5 +59,8 @@ section.carrousel{
             }  
         }
        
+    }
+    .carrousel_slides::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
     }
 }
