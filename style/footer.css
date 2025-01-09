@@ -8,7 +8,7 @@ footer{
     @media (min-width: 1050px){
         padding-bottom: 60px;
     }
-    @media (min-width: 825px){
+    @media (min-width: 750px){
         .grid_giver{
             .grid_receiver{
                 position: relative;
@@ -33,9 +33,11 @@ footer{
         h2 + p{
             max-width: 420px;
         }
+
         @media (min-width: 640px){
             padding: 100px 0;
         }
+        
         @media (min-width: 1050px){
             padding: 200px 0 120px 0;
         }
@@ -44,6 +46,7 @@ footer{
         display: flex;
         justify-content: center;
         align-items: center;
+
         .footernav{
             ul{
                 display: flex;
@@ -51,6 +54,7 @@ footer{
                 gap: 20px;
             }
         }
+
         @media (min-width: 640px){
             justify-content: start;
         }
@@ -66,8 +70,14 @@ footer{
         @media (min-width: 640px){
             bottom: 192px;
         }
+
+        @media (min-width: 640px) and (max-width: 750px){
+            bottom: 260px !important;
+        }
+
         @media (min-width: 825px){
             width: 195px;
         }
+
     }
 }
