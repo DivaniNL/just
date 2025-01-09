@@ -22,6 +22,7 @@ section.intro_text{
         display: grid;
         grid-template-columns: minmax(min-content, 915px) min-content;
         position: relative;
+        margin-bottom: 120px;
     }
     img.sticker{
         width: 340px;

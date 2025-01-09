@@ -1,6 +1,13 @@
 footer{
     position: relative;
     overflow-x: hidden;
+    padding-bottom: 5px;
+    @media (min-width: 640px){
+        padding-bottom: 40px;
+    }
+    @media (min-width: 1050px){
+        padding-bottom: 60px;
+    }
     @media (min-width: 825px){
         .grid_giver{
             .grid_receiver{
@@ -28,6 +35,9 @@ footer{
         }
         @media (min-width: 640px){
             padding: 100px 0;
+        }
+        @media (min-width: 1050px){
+            padding: 200px 0 120px 0;
         }
     }
     .row_2{

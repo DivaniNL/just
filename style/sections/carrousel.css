@@ -39,6 +39,10 @@ section.carrousel{
             width: calc(100% + 80px);
             translate: -40px -50%;
         }
+        @media (min-width: 1250px){
+            width: 100%;
+            translate: 0 -50%;
+        }
         
     }
     .carrousel_slides{
@@ -84,5 +88,8 @@ section.carrousel{
     }
     .carrousel_slides::-webkit-scrollbar { 
         display: none;  /* Safari and Chrome */
+    }
+    @media (min-width: 1050px){
+        margin: 120px 0 0 0;
     }
 }
