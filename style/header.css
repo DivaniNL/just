@@ -1,4 +1,5 @@
 header{
+    padding-top: 40px;
     .container_navigation{
         padding-top: 40px;
         padding-bottom: 20px;
@@ -61,15 +62,13 @@ header{
         }
         @media (min-width: 600px){
             padding-left: 0.8888rem;
-            padding-right: 3.75rem;
+            padding-right: clamp(3.75rem, calc((100vw - 1320px) / 2), calc((100vw - 1320px) / 2));
         }
     }
     
     svg.logo_just{
         width: 96px;
         height: 37px;
-        position: absolute;
-        top: 40px;
         left: 0.8888rem;
         z-index: 9999;
         path{
