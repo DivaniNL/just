@@ -54,10 +54,15 @@ section.carrousel{
             width: 100vw;
             max-width: 100%;
             scroll-snap-align: center;
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
             figure{
                 display: grid;
                 width: 100vw;
                 max-width: 100%;
+                width: 100vw;
+                max-width: 780px;
                 img{
                     width: 100vw;
                     max-width: 100%;

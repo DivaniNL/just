@@ -17,7 +17,7 @@ footer{
             }
             label{
                 width: 100%;
-                @media (min-width: 600px){
+                @media (min-width: 640px){
                     width: 100%;
                     max-width: 550px;
                 }
@@ -25,6 +25,9 @@ footer{
         }
         h2 + p{
             max-width: 420px;
+        }
+        @media (min-width: 640px){
+            padding: 100px 0;
         }
     }
     .row_2{
@@ -37,6 +40,9 @@ footer{
                 list-style: none;
                 gap: 20px;
             }
+        }
+        @media (min-width: 640px){
+            justify-content: start;
         }
     }
     img.sticker{

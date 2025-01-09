@@ -7,5 +7,27 @@ section.intro_text{
             hyphens: auto;
             word-break: break-word;
         }
+        @media (min-width: 1050px){
+            grid-column: 1;
+        }
+    }
+    p.text_large{
+        @media (min-width: 1050px){
+            grid-column: 1;
+        } 
+    }
+    @media (min-width: 1050px){
+        position: relative;
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(min-content, 915px) min-content;
+        position: relative;
+    }
+    img.sticker{
+        width: 340px;
+        position: absolute;
+        right: 0;
+        top: 161px;
+        rotate: -19deg;
     }
 }

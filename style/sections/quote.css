@@ -16,10 +16,23 @@ blockquote.quote{
         font-size: 94px;
         height: 50px;
         top: 24px;
+        @media (min-width: 640px){
+            top: 0;
+            left: 0;
+            translate: 0 -18px;
+            height: 60px;
+            font-size: 120px;
+        }
     }
     .h3{
         font-family: var(--font_light);
         font-weight: 300 !important;
         margin-bottom: 24px;
+    }
+    @media (min-width: 640px){
+        padding-top: 0;
+        margin-top: 80px;
+        padding-bottom: 80px;
+        padding-left: 66px;
     }
 }
