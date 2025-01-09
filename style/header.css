@@ -24,6 +24,9 @@ header{
             width: 100%;
             
         }
+        >label.label_theme{
+            display: none;
+        }
         select.theme-selector{
             text-transform: uppercase;
             font-family: var(--font_reg);
