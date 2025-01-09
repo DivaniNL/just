@@ -11,26 +11,41 @@ section.carrousel{
         translate: 0 -50%;
         li{
             button{
+                cursor: pointer;
                 appearance: none;
                 border: 0;
+                width: 66px;
+                position: absolute;
+                top: 50%;
+                translate: 0 -50%;
+                border: 0;
+                background: inherit;
+                appearance: none;
+                @media (min-width: 600px){
+                    width: 130px;
+                }
                 svg{
                     width: 66px;
-                    position: absolute;
-                    top: 50%;
-                    translate: 0 -50%;
                     path:first-child{
                         fill: var(--color_accent)
                     }
                     
-                    &.arrow_prev{
-                        transform: scale(-1,1);
-                        left: 0;
-                    }
-                    &.arrow_next{
-                        right: 0;
-                    }
                     @media (min-width: 600px){
                         width: 130px;
+                    }
+                }
+                &.arrow_prev_btn{
+                    transform: scale(-1,1);
+                    left: 0;
+                }
+                &.arrow_next_btn{
+                    right: 0;
+                }
+                &:hover, &:focus, &:active{
+                    svg{  
+                        path:first-child{
+                            fill: var(--green);
+                        } 
                     }
                 }
             }

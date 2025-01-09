@@ -40,20 +40,20 @@ header{
             background-size: 101% 200%;
             transition: 0.3s ease;
             color: var(--black);
-            background-position: top;
+            background-position: bottom;
             cursor: pointer;
             width: fit-content;
             background-image: linear-gradient(var(--color_foreground) 50%, var(--color_accent) 50%);
             &:focus,
             &:hover {
-                background-position: bottom;
-                color: var(--black);
+                background-position: top;
+                /* color: var(--black); */
                 option{
                     color: var(--black);
                 }
             }
             &.active{
-                background-position: bottom;
+                background-position: top;
                 color: var(--black);
             }
             option{
