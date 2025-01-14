@@ -1,7 +1,7 @@
-section.carrousel{
+section.carousel{
     margin: 60px 0 0 0;
     position: relative;
-    .carrousel_arrows{
+    .carousel_arrows{
         list-style: none;
         position: absolute;
         height: fit-content;
@@ -9,6 +9,7 @@ section.carrousel{
         left: 0;
         width: 100%;
         translate: 0 -50%;
+        z-index: 11;
         li{
             button{
                 cursor: pointer;
@@ -48,6 +49,26 @@ section.carrousel{
                         } 
                     }
                 }
+                &.scrolling{
+                    &.arrow_prev_btn{
+                        animation: scaleChangeReverse 0.5s linear;
+                        animation-iteration-count: 1;
+                        animation-fill-mode: forwards;
+                    }
+                    &.arrow_next_btn{
+                        animation: scaleChange 0.5s linear;
+                        animation-iteration-count: 1;
+                        animation-fill-mode: forwards;
+                    }
+                    svg{
+                        path:first-child{
+                            fill: var(--arrowSlideclr);
+                            animation: colorChange 0.5s linear;
+                            animation-iteration-count: 1;
+                            animation-fill-mode: forwards;
+                        }
+                    }
+                }
             }
         }
         @media (min-width: 600px){
@@ -60,7 +81,7 @@ section.carrousel{
         }
         
     }
-    .carrousel_slides{
+    .carousel_slides{
         list-style: none;
         width: calc(100% + 1.7776rem);
         margin-left: -0.8888rem;
@@ -68,8 +89,13 @@ section.carrousel{
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;  /* Firefox */
+        z-index: 10;
+
+        /* test */
+        max-width: 790px;
         
-        .carrousel_slide{
+
+        .carousel_slide{
             width: 100vw;
             max-width: 100%;
             scroll-snap-align: center;
@@ -85,6 +111,8 @@ section.carrousel{
                 img{
                     width: 100vw;
                     max-width: 100%;
+                    object-fit: cover;
+                    max-height: 80vh;
                 }
                 figcaption{
                     padding: 0 0.8888rem;
@@ -97,14 +125,72 @@ section.carrousel{
         }
         @media (min-width: 600px){
             width: 100%;
-            margin-left: unset;
+            margin-left: auto;
+            margin: 0 auto;
+        }
+        
+        &.scrolling{
+            animation: scaleChangeSmaller 0.5s linear;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
         }
        
     }
-    .carrousel_slides::-webkit-scrollbar { 
+    .carousel_slides::-webkit-scrollbar { 
         display: none;  /* Safari and Chrome */
     }
     @media (min-width: 1050px){
         margin: 120px 0 0 0;
+    }
+}
+
+@property --arrowSlideclr {
+    syntax:"<color>";
+    inherits:true;
+    initial-value: var(--green);
+}
+
+@keyframes colorChange {
+    0% {
+        --arrowSlideclr: var(--green);
+    }
+    50%{
+        --arrowSlideclr: var(--pink);
+    }
+    100% {
+        --arrowSlideclr: var(--green);
+    }
+}
+@keyframes scaleChange {
+    0% {
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes scaleChangeSmaller {
+    0% {
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.85);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes scaleChangeReverse {
+    0% {
+        transform: scale(-1,1);
+    }
+    50%{
+        transform: scale(-1.1,1.1);
+    }
+    100% {
+        transform: scale(-1,1);
     }
 }
