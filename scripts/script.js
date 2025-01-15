@@ -102,7 +102,7 @@ leftArrow.addEventListener("click", () => {
         leftArrow.classList.remove('scrolling');
         sliderInit.classList.remove('scrolling');
         leftArrow.disabled = false;
-    }, 500); // Adjust the timeout duration as needed 
+    }, 750); // Adjust the timeout duration as needed 
 });
 
 // right arrow click event
@@ -123,5 +123,5 @@ rightArrow.addEventListener("click", () => {
         rightArrow.classList.remove('scrolling');
         sliderInit.classList.remove('scrolling');
         rightArrow.disabled = false
-    }, 500); // Adjust the timeout duration as needed
+    }, 750); // Adjust the timeout duration as needed
 });

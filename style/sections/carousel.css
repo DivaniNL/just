@@ -130,7 +130,7 @@ section.carousel{
         }
         
         &.scrolling{
-            animation: scaleChangeSmaller 0.5s linear;
+            animation: scaleChangeSmaller .75s ease-out;
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
         }
@@ -175,12 +175,24 @@ section.carousel{
 @keyframes scaleChangeSmaller {
     0% {
         transform: scale(1);
+        translate: 0 0;
+        z-index: -100;
+        position: relative;
     }
-    50%{
+    50% {
         transform: scale(0.85);
+        translate: 0 -250px;
+        z-index: -100;
+        position: relative;
+        opacity: 0;
+        
     }
     100% {
         transform: scale(1);
+        translate: 0 0;
+        z-index: 10;
+        position: relative;
+        opacity: 1;
     }
 }
 @keyframes scaleChangeReverse {
