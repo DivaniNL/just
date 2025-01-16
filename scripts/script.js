@@ -62,6 +62,8 @@ function fillSlides(){
         slideDesc.prepend(slideInitContainer);
 
     });
+    // Add last slide to first
+    sliderInit.prepend(sliderInit.lastElementChild);
 }
 
 
@@ -72,6 +74,8 @@ document.body.onresize = function () {
     declareSlideWidth();
 }
 
+let isButtonScroll = false;
+
 // Nerf the fire rate of scroll event
 function debounce(func, wait) {
     let timeout;
@@ -81,14 +85,55 @@ function debounce(func, wait) {
     };
 }
 
+let previousScrollPos = 0;
+
 // Check scroll position
-function checkScrollPos() {
+function checkScrollPos(e) {
     currentScrollPos = sliderInit.scrollLeft;
     arrowDisplay();
-}
 
-sliderInit.addEventListener("scroll", debounce(checkScrollPos, 100));
-checkScrollPos();
+    if (isButtonScroll) {
+        if (currentScrollPos > previousScrollPos) {
+            // Scrolling right
+            if (currentScrollPos >= (lastscrolledSlidePos - oneSlideScrollWidth)) {
+                // Move the first slide to the end
+                sliderInit.appendChild(sliderInit.firstElementChild);
+                // sliderInit.scrollLeft -= oneSlideScrollWidth;
+            }
+        } else {
+            // Scrolling left
+            if (currentScrollPos <= 2) {
+                // Move the last slide to the beginning
+                sliderInit.prepend(sliderInit.lastElementChild);
+                // sliderInit.scrollLeft += oneSlideScrollWidth;
+            }
+        }
+    }
+    else{
+        if (currentScrollPos > previousScrollPos) {
+            // Scrolling right
+            if (currentScrollPos >= (lastscrolledSlidePos - oneSlideScrollWidth)) {
+                // Move the first slide to the end
+                sliderInit.appendChild(sliderInit.firstElementChild);
+                sliderInit.scrollLeft -= (oneSlideScrollWidth * 2);
+            }
+        } else {
+            // Scrolling left
+            if (currentScrollPos <= 2) {
+                // Move the last slide to the beginning
+                sliderInit.prepend(sliderInit.lastElementChild);
+                sliderInit.scrollLeft += oneSlideScrollWidth;
+            }
+        }
+        console.log(currentScrollPos + " " + previousScrollPos);
+        console.log("end Scroll")
+    }
+
+    previousScrollPos = currentScrollPos;
+    isButtonScroll = false; // Reset the flag after handling the scroll
+}
+const debouncedCheckScrollPos = debounce(checkScrollPos, 100);
+sliderInit.addEventListener("scroll", debouncedCheckScrollPos);
 
 // Arrows show/hide
 function arrowDisplay() {
@@ -106,7 +151,7 @@ function arrowDisplay() {
 
 // left arrow click event
 leftArrow.addEventListener("click", () => {
-
+    isButtonScroll = true;
     slideIndex -= 1;
     if (slideIndex < 0) {
         slideIndex = 0;
@@ -123,11 +168,12 @@ leftArrow.addEventListener("click", () => {
         leftArrow.classList.remove('scrolling');
         sliderInit.classList.remove('scrolling');
         leftArrow.disabled = false;
-    }, 750); // Adjust the timeout duration as needed 
+    }, 750); // Adjust the timeout duration as needed
 });
 
 // right arrow click event
 rightArrow.addEventListener("click", () => {
+    isButtonScroll = true;
     slideIndex += 1;
     if (slideIndex >= slideCount) {
         slideIndex = slideCount - 1;
@@ -143,6 +189,6 @@ rightArrow.addEventListener("click", () => {
     setTimeout(() => {
         rightArrow.classList.remove('scrolling');
         sliderInit.classList.remove('scrolling');
-        rightArrow.disabled = false
+        rightArrow.disabled = false;
     }, 750); // Adjust the timeout duration as needed
 });
