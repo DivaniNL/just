@@ -90,7 +90,7 @@ section.carousel{
         scroll-snap-type: x mandatory;
         scrollbar-width: none;  /* Firefox */
         z-index: 10;
-
+        transition: 0.35s ease-out;
         /* test */
         max-width: 790px;
         
@@ -120,7 +120,7 @@ section.carousel{
                     @media (min-width: 600px){
                         width: 100%;
                     }
-                    .text_small{ /* Slide int  + desc */
+                    &.text_small{ /* Slide int  + desc */
                         display: flex;
                         gap: 0.25rem;
                     }
@@ -138,6 +138,10 @@ section.carousel{
             animation: scaleChangeSmaller .75s ease-out;
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
+        }
+        &.disable_scroll{
+            pointer-events: none;
+            overflow-x: hidden;
         }
        
     }

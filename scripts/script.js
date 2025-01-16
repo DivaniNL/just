@@ -27,6 +27,8 @@ let currentScrollPos;
 let lastscrolledSlidePos;
 let oneSlideScrollWidth;
 let slideCount;
+let isButtonScroll = false;
+let previousScrollPos = 0;
 
 // carousel slider elements
 let sliderInit = document.querySelector(".carousel_slides");
@@ -74,7 +76,6 @@ document.body.onresize = function () {
     declareSlideWidth();
 }
 
-let isButtonScroll = false;
 
 // Nerf the fire rate of scroll event
 function debounce(func, wait) {
@@ -85,16 +86,17 @@ function debounce(func, wait) {
     };
 }
 
-let previousScrollPos = 0;
+
 
 // Check scroll position
 function checkScrollPos(e) {
     currentScrollPos = sliderInit.scrollLeft;
-    arrowDisplay();
-
+    console.log(isButtonScroll);
     if (isButtonScroll) {
+        console.log("eerst" + previousScrollPos + "huidige slide" + slideIndex);
         if (currentScrollPos > previousScrollPos) {
             // Scrolling right
+            
             if (currentScrollPos >= (lastscrolledSlidePos - oneSlideScrollWidth)) {
                 // Move the first slide to the end
                 sliderInit.appendChild(sliderInit.firstElementChild);
@@ -108,47 +110,48 @@ function checkScrollPos(e) {
                 // sliderInit.scrollLeft += oneSlideScrollWidth;
             }
         }
+
     }
+    
     else{
+        console.log("handmatig");
         if (currentScrollPos > previousScrollPos) {
             // Scrolling right
-            if (currentScrollPos >= (lastscrolledSlidePos - oneSlideScrollWidth)) {
+            if (currentScrollPos >= lastscrolledSlidePos - (oneSlideScrollWidth * 3)) { /* een na laatste slide */
                 // Move the first slide to the end
-                sliderInit.appendChild(sliderInit.firstElementChild);
-                sliderInit.scrollLeft -= (oneSlideScrollWidth * 2);
+                //sliderInit.style.opacity="0";
+                sliderInit.classList.add('disable_scroll');
+                setTimeout(() => {
+                    //sliderInit.scrollLeft -= (oneSlideScrollWidth);
+                    sliderInit.appendChild(sliderInit.firstElementChild);
+                }, 150);
             }
         } else {
             // Scrolling left
-            if (currentScrollPos <= 2) {
+            if (currentScrollPos <= (oneSlideScrollWidth * 3)) {
                 // Move the last slide to the beginning
-                sliderInit.prepend(sliderInit.lastElementChild);
-                sliderInit.scrollLeft += oneSlideScrollWidth;
+                sliderInit.classList.add('disable_scroll');
+                setTimeout(() => {
+                    sliderInit.prepend(sliderInit.lastElementChild);
+                },150);
+
             }
         }
         console.log(currentScrollPos + " " + previousScrollPos);
         console.log("end Scroll")
     }
-
+    console.log("daarna" + currentScrollPos + "huidige slide" + slideIndex);
     previousScrollPos = currentScrollPos;
     isButtonScroll = false; // Reset the flag after handling the scroll
+    sliderInit.classList.add('disable_scroll');
+    setTimeout(() => {
+        sliderInit.classList.remove('disable_scroll');
+    },250);
 }
 const debouncedCheckScrollPos = debounce(checkScrollPos, 100);
 sliderInit.addEventListener("scroll", debouncedCheckScrollPos);
 
 // Arrows show/hide
-function arrowDisplay() {
-    if (currentScrollPos >= lastscrolledSlidePos) {
-        rightArrow.style.display = "none";
-    } else {
-        rightArrow.style.display = "block";
-    }
-    if (currentScrollPos <= 0) {
-        leftArrow.style.display = "none";
-    } else {
-        leftArrow.style.display = "block";
-    }
-}
-
 // left arrow click event
 leftArrow.addEventListener("click", () => {
     isButtonScroll = true;
@@ -163,11 +166,9 @@ leftArrow.addEventListener("click", () => {
     });
     leftArrow.classList.add('scrolling');
     sliderInit.classList.add('scrolling');
-    leftArrow.disabled = true;
     setTimeout(() => {
         leftArrow.classList.remove('scrolling');
         sliderInit.classList.remove('scrolling');
-        leftArrow.disabled = false;
     }, 750); // Adjust the timeout duration as needed
 });
 
@@ -185,10 +186,8 @@ rightArrow.addEventListener("click", () => {
     });
     rightArrow.classList.add('scrolling');
     sliderInit.classList.add('scrolling');
-    rightArrow.disabled = true;
     setTimeout(() => {
         rightArrow.classList.remove('scrolling');
         sliderInit.classList.remove('scrolling');
-        rightArrow.disabled = false;
     }, 750); // Adjust the timeout duration as needed
 });
