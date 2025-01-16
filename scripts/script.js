@@ -34,10 +34,12 @@ let sliderArrowsContainer = document.querySelector(".carousel_arrows");
 let sliderArrows = document.querySelectorAll(".carousel_arrow");
 let leftArrow = document.querySelector(".arrow_prev_btn");
 let rightArrow = document.querySelector(".arrow_next_btn");
+let allSlides = document.querySelectorAll(".carousel_slide");
 
 
 // Slider width for calculating scroll position
 function declareSlideWidth() {
+
     slideCount = document.querySelectorAll(".carousel_slide").length;
     let sliderWidth = sliderInit.scrollWidth;
     currentScrollPos = sliderInit.scrollLeft;
@@ -45,7 +47,26 @@ function declareSlideWidth() {
     lastscrolledSlidePos = sliderWidth - oneSlideScrollWidth;
 }
 
+// Fill slides with slide number
+function fillSlides(){
+    allSlides.forEach((slide,i) => {    
+        i++;
+        slideInt = i;
+        let slideIString = slideInt + "/" + slideCount;
+        slide.setAttribute("data-slide", i);
+        slideInitContainer = document.createElement("span");
+        slideInitContainer.classList.add("text_accent");
+        slideInitContainer.textContent = slideIString;
+
+        slideDesc = slide.querySelector(".text_small");
+        slideDesc.prepend(slideInitContainer);
+
+    });
+}
+
+
 declareSlideWidth();
+fillSlides();
 
 document.body.onresize = function () {   
     declareSlideWidth();

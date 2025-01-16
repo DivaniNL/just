@@ -120,6 +120,11 @@ section.carousel{
                     @media (min-width: 600px){
                         width: 100%;
                     }
+                    .text_small{ /* Slide int  + desc */
+                        display: flex;
+                        gap: 0.25rem;
+                    }
+
                 }
             }  
         }
