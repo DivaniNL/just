@@ -21,7 +21,7 @@ selectMode.addEventListener("change", (e) => {
 fetchMode();
 
 // carousel slider vars
-let slideIndex = 0;
+let slideIndex = 1;
 let sliderScrollPos = 0;
 let currentScrollPos;
 let lastscrolledSlidePos;
@@ -29,6 +29,7 @@ let oneSlideScrollWidth;
 let slideCount;
 let isButtonScroll = false;
 let previousScrollPos = 0;
+let hasReset = false;
 
 // carousel slider elements
 let sliderInit = document.querySelector(".carousel_slides");
@@ -118,29 +119,47 @@ function checkScrollPos(e) {
         if (currentScrollPos > previousScrollPos) {
             // Scrolling right
             if (currentScrollPos >= lastscrolledSlidePos - (oneSlideScrollWidth * 3)) { /* een na laatste slide */
-                // Move the first slide to the end
                 //sliderInit.style.opacity="0";
                 sliderInit.classList.add('disable_scroll');
+
                 setTimeout(() => {
                     //sliderInit.scrollLeft -= (oneSlideScrollWidth);
+                    slideIndex += 1;
                     sliderInit.appendChild(sliderInit.firstElementChild);
                 }, 150);
+            }
+            // Move the first slide to the end
+            if (hasReset) {
+                slideIndex += 1;
+                if (slideIndex > 10) {
+                    slideIndex = 1;
+                }
+            } else {
+                hasReset = true;
             }
         } else {
             // Scrolling left
             if (currentScrollPos <= (oneSlideScrollWidth * 3)) {
                 // Move the last slide to the beginning
                 sliderInit.classList.add('disable_scroll');
+
                 setTimeout(() => {
+                    slideIndex -= 1;
                     sliderInit.prepend(sliderInit.lastElementChild);
                 },150);
 
             }
+            slideIndex -= 1;
+            if (slideIndex < 1) {
+                slideIndex = 10;
+            }
         }
+        allSlides.forEach(slide => slide.classList.remove('active'));
+        document.querySelector(".carousel_slide[data-slide='" + slideIndex + "']").classList.add('active');
         console.log(currentScrollPos + " " + previousScrollPos);
         console.log("end Scroll")
     }
-    console.log("daarna" + currentScrollPos + "huidige slide" + slideIndex);
+    console.log("index" + slideIndex);
     previousScrollPos = currentScrollPos;
     isButtonScroll = false; // Reset the flag after handling the scroll
     sliderInit.classList.add('disable_scroll');
@@ -156,9 +175,11 @@ sliderInit.addEventListener("scroll", debouncedCheckScrollPos);
 leftArrow.addEventListener("click", () => {
     isButtonScroll = true;
     slideIndex -= 1;
-    if (slideIndex < 0) {
-        slideIndex = 0;
+    if (slideIndex < 1) {
+        slideIndex = 10;
     }
+    allSlides.forEach(slide => slide.classList.remove('active'));
+    document.querySelector(".carousel_slide[data-slide='" + slideIndex + "']").classList.add('active');
     sliderScrollPos = currentScrollPos - oneSlideScrollWidth;
     sliderInit.scrollTo({
         left: sliderScrollPos,
@@ -176,9 +197,11 @@ leftArrow.addEventListener("click", () => {
 rightArrow.addEventListener("click", () => {
     isButtonScroll = true;
     slideIndex += 1;
-    if (slideIndex >= slideCount) {
-        slideIndex = slideCount - 1;
+    if (slideIndex > 10) {
+        slideIndex = 1;
     }
+    allSlides.forEach(slide => slide.classList.remove('active'));
+    document.querySelector(".carousel_slide[data-slide='" + slideIndex + "']").classList.add('active');
     sliderScrollPos = currentScrollPos + oneSlideScrollWidth;
     sliderInit.scrollTo({
         left: sliderScrollPos,
