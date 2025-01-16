@@ -10,7 +10,7 @@ blockquote.quote{
     }
     &:after{
         content: '“';
-        font-family: var(--font_magic) !important;
+        font-family: var(--font_magic), Verdana, sans-serif !important;
         color: var(--color_accent) !important;
         position: absolute;
         font-size: 94px;
@@ -25,7 +25,7 @@ blockquote.quote{
         }
     }
     .h3{
-        font-family: var(--font_light);
+        font-family: var(--font_light), Verdana, sans-serif;
         font-weight: 300 !important;
         margin-bottom: 24px;
     }

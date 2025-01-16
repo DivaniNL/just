@@ -30,7 +30,7 @@ header{
         }
         select.theme-selector{
             text-transform: uppercase;
-            font-family: var(--font_reg);
+            font-family: var(--font_reg), Verdana, sans-serif;
             border: none;
             padding: 7px 10px;
             font-size: var(--fonts_small);
