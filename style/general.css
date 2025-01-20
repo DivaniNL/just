@@ -1,4 +1,3 @@
-
 .grid_giver {
     display: grid;
     grid-template-columns: minmax(0.8888rem, 1fr) minmax(0, 1320px) minmax(0.8888rem, 1fr);
@@ -9,7 +8,6 @@
 .grid_receiver {
     grid-column: 2 / 2; /* make this the second column - > see line 61 */
 }
-
 main{
     margin-top: 115px;
 }

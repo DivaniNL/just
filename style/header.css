@@ -23,7 +23,6 @@ header{
             justify-content: end;
             margin-left: auto;
             width: 100%;
-            
         }
         >label.label_theme{
             position: absolute;
@@ -55,7 +54,6 @@ header{
             &:focus,
             &:hover {
                 background-position: top;
-                /* color: var(--black); */
                 option{
                     color: var(--black);
                 }
@@ -73,7 +71,6 @@ header{
             padding-right: clamp(3.75rem, calc((100vw - 1320px) / 2), calc((100vw - 1320px) / 2));
         }
     }
-    
     svg.logo_just{
         width: 96px;
         height: 37px;
@@ -83,9 +80,7 @@ header{
             fill: var(--color_foreground);
         }
     }
-
 }
-
 body[data-theme="light"]{
     select.theme-selector{
         color: var(--white);

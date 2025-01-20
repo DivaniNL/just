@@ -91,10 +91,7 @@ section.carousel{
         scrollbar-width: none;  /* Firefox */
         z-index: 10;
         transition: 0.35s ease-out;
-        /* test */
         max-width: 790px;
-        
-
         .carousel_slide{
             width: 100vw;
             max-width: 100%;
@@ -117,14 +114,15 @@ section.carousel{
                 figcaption{
                     padding: 0 0.8888rem;
                     width: calc(100% - 0.8888rem);
+
                     @media (min-width: 600px){
                         width: 100%;
                     }
+
                     &.text_small{ /* Slide int  + desc */
                         display: flex;
                         gap: 0.25rem;
                     }
-
                 }
             }  
         }
@@ -133,7 +131,6 @@ section.carousel{
             margin-left: auto;
             margin: 0 auto;
         }
-        
         &.scrolling{
             animation: scaleChangeSmaller .75s ease-out;
             animation-iteration-count: 1;
@@ -143,7 +140,6 @@ section.carousel{
             pointer-events: none;
             overflow-x: hidden;
         }
-       
     }
     .carousel_slides::-webkit-scrollbar { 
         display: none;  /* Safari and Chrome */
@@ -152,13 +148,11 @@ section.carousel{
         margin: 120px 0 0 0;
     }
 }
-
 @property --arrowSlideclr {
     syntax:"<color>";
     inherits:true;
     initial-value: var(--green);
 }
-
 @keyframes colorChange {
     0% {
         --arrowSlideclr: var(--green);
