@@ -1,4 +1,4 @@
-const selectMode = document.querySelector(".theme-selector");
+const selectMode = document.querySelector(".theme_selector");
 const fetchMode = () => {
     const savedMode = localStorage.getItem("mode");
     if (!savedMode) {
